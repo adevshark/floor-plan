@@ -1,0 +1,8 @@
+.div-building {
+  position: absolute;
+  display: flex;
+  margin: 1px;
+  padding: 0px;
+  flex-flow: row wrap;
+  border: 1px solid black;
+}
