@@ -8,8 +8,8 @@ function getRoomCoordinates(
 ) {
   if (width === 0 || height === 0 || numberOfRooms === 0) return [];
 
-  let offsetLeft = -1;
-  let offsetTop = -1;
+  let offsetLeft = 0;
+  let offsetTop = 0;
 
   let offsetLeftExtended = 0;
 
@@ -20,10 +20,10 @@ function getRoomCoordinates(
   for (let i = 0; i < numberOfRooms; i++) {
     if (width >= offsetLeft + boxWidth) {
       rooms.push({
-        offsetLeft: offsetLeft,
-        boxWidth: boxWidth,
-        boxHeight: boxHeight,
-        offsetTop: offsetTop
+        width: boxWidth,
+        height: boxHeight,
+        top: offsetTop,
+        left: offsetLeft,
       });
 
       offsetLeft += boxWidth;
@@ -36,14 +36,14 @@ function getRoomCoordinates(
 
       switched = true;
 
-      offsetTop = offsetTop + boxHeight;
+      offsetTop = offsetTop + boxWidth;
 
-      if (height >= offsetTop + boxHeight) {
+      if (height >= offsetTop + boxWidth) {
         rooms.push({
-          offsetLeft: offsetLeftExtended,
-          boxWidth: boxHeight,
-          boxHeight: boxWidth,
-          offsetTop: offsetTop
+          width: boxHeight,
+          height: boxWidth,
+          top: offsetTop,
+          left: offsetLeftExtended,
         });
       } else break;
     }

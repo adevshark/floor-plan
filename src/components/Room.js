@@ -1,13 +1,22 @@
 import React from "react";
 import "./Room.css";
 
+import { Group } from '@vx/group';
+
 export default function Room(props) {
-  const { width, height, offsetLeft, offsetTop } = props;
+  const { width, height, top, left } = props.data;
 
   return (
-    <div
-      className="div-room"
-      style={{ width, height, left: offsetLeft, top: offsetTop }}
-    />
+    <Group 
+      top={top}
+      left={left}
+    >
+      <rect
+        width={width}
+        height={height}
+        fill="#c3f5f5"
+        stroke="#000000"
+      />
+    </Group>
   );
 }
